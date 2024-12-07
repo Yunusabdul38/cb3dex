@@ -1,11 +1,15 @@
 "use client";
 import { createPortal } from "react-dom";
 import { useConnect, useAccount } from "@starknet-react/core";
-import { useState } from "react";
+import React, { useState } from "react";
 import AddressBar from "./address-bar";
 import { FaXmark } from "react-icons/fa6";
 
-const ConnectModal = ({ setIsOpen }) => {
+interface connectProps {
+  setIsOpen: (T:boolean) => void;
+}
+
+const ConnectModal:React.FC<connectProps> = ({ setIsOpen }) => {
   const { connect, connectors } = useConnect();
   console.log({connect,connectors})
   return (

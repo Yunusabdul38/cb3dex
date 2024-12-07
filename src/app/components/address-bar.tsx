@@ -1,7 +1,12 @@
 import ChevronDown from "../svg/ChevronDown";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDisconnect } from "@starknet-react/core";
-export default function AddressBar({ address }) {
+
+interface addressProps {
+  address:`0x${string}`
+}
+
+const AddressBar:React.FC<addressProps> = ({ address })=> {
   const [showDisconnect, setShowDisconnect] = useState(false);
   const {disconnect,data} = useDisconnect()
 
@@ -49,3 +54,5 @@ export default function AddressBar({ address }) {
     </div>
   );
 }
+
+export default  AddressBar
