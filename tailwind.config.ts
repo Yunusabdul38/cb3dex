@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        "footer-image": "url('/assets/footer-bg.svg')",
+        "main-bg":"url('/assets/bur@2x.png')",
+      },
     },
   },
   plugins: [],
