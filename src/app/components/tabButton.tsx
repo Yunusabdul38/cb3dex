@@ -39,7 +39,7 @@ const TabButtonInterface: React.FC = () => {
   };
 
   return (
-    <div className="pt-15 relative p-5">
+    <div className="pt-15 p-5">
       <div className="mb-10 flex justify-center space-x-4">
         <TabButton
           tab="swap"

@@ -1,12 +1,50 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import { FaRotate } from "react-icons/fa6";
+import ChevronDown from "../svg/ChevronDown";
+import Tokens from "./tokens";
 //import AddTokenButton, { AddTokenModal } from "../../components/lib/AddToken";
 
 const SwapContent: React.FC = () => {
+  const [isOpen,setIsOpen] = useState(false)
+  const [buyToken,setBuyToken] = useState("")
+  const [sellToken,setSellToken] = useState("")
+  const [swapType,setSwapType] = useState("")
+  // const [onSwapLoad,setOnSwapLoad] = useState(false)
+
+  function closeModal (){
+    setIsOpen(false)
+    setSwapType("")
+  }
+
+  function openModal (){
+    setIsOpen(true)
+  }
+
+  function swapTokensFromByToSell(){
+    if(sellToken && buyToken){
+    setBuyToken(sellToken)
+    setSellToken(buyToken)
+    }
+  }
+
+  function tokenHandle(token:string){
+    console.log(token)
+    if(swapType === "buy"){
+      setBuyToken(token)
+    }
+    if(swapType=="sell"){
+      setSellToken(token)
+    }
+    setIsOpen(false)
+  }
+  
   return (
+   <>
+  {isOpen &&  <Tokens closeModal={closeModal} tokenHandle={tokenHandle} />}
     <section className="mx-auto mb-7 w-11/12 sm:w-4/5 lg:w-1/2">
       <div className="relative grid w-full gap-4">
-        <div className="absolute bottom-1/2 left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-content-center rounded-full border bg-[#151536] text-4xl text-white">
+        <div className="absolute bottom-1/2 left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-content-center rounded-full border bg-[#151536] text-4xl text-white z-20 cursor-pointer" onClick={swapTokensFromByToSell}>
           <FaRotate />
         </div>
         <div className="flex h-44 flex-col justify-between rounded-2xl border border-gray-600 p-7 text-white shadow-2xl">
@@ -19,13 +57,14 @@ const SwapContent: React.FC = () => {
               type="number"
               defaultValue="0"
               id="sell"
-              className="w-20 bg-inherit px-2 py-1 text-4xl sm:w-36 md:w-fit"
+              inputMode="numeric"
+              className="w-20 bg-inherit px-2 py-1 text-4xl sm:w-32 md:w-96 outline-none"
             />
-            {/* <AddTokenButton
-              className="flex items-center gap-3 rounded-3xl border px-6"
-              text={"select a token"}
-            /> */}
-            <div>select token</div>
+            <button className="flex gap-3 items-center border rounded-full py-2 px-4 hover:border-[#EC796B33]/100"  onClick={()=>{
+              openModal()
+              setSwapType("sell")
+              }}
+              >{sellToken?sellToken:"select token"} <ChevronDown/> </button>
           </div>
         </div>
         <div className="flex h-44 flex-col justify-between rounded-2xl border border-gray-600 p-7 text-white shadow-2xl">
@@ -37,13 +76,15 @@ const SwapContent: React.FC = () => {
               type="number"
               defaultValue="0"
               id="buy"
-              className="w-20 bg-inherit p-2 py-1 text-4xl sm:w-36 md:w-fit"
+               inputMode="numeric"
+              className="w-20 bg-inherit px-2 py-1 text-4xl sm:w-32 md:w-96 outline-none"
             />
-            {/* <AddTokenButton
-              className="flex items-center gap-3 rounded-3xl border px-6"
-              text={"select a token"}
-            /> */}
-             <div>select token</div>
+             <button className="flex gap-3 items-center border rounded-full py-2 px-4 hover:border-[#EC796B33]/100"
+              onClick={()=>{
+                openModal()
+                setSwapType("buy")
+                }}
+             >{buyToken?buyToken:"select token"} <ChevronDown/> </button>
           </div>
         </div>
       </div>
@@ -51,6 +92,7 @@ const SwapContent: React.FC = () => {
         get started
       </button>
     </section>
+   </>
   );
 };
 

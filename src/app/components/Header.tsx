@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div
       id="nav"
-      className="z-[9999] w-full px-2 pt-4 transition-all duration-500 md:px-8 md:pt-0"
+      className="w-full px-2 pt-4 transition-all duration-500 md:px-8 md:pt-0"
     >
       <header className="md:rounded-[32px rounded-[12px]">
         <div className="">
