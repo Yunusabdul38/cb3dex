@@ -18,7 +18,7 @@ const ConnectModal:React.FC<connectProps> = ({ setIsOpen }) => {
       onClick={() => setIsOpen(false)}
     >
       <div onClick={(e) => e.stopPropagation()} className="flex flex-col sm:flex-row gap-4 bg-black/55 pt-16 h-fit p-4 rounded-md relative">
-        <FaXmark className="absolute right-4 top-2 border rounded text-white  p-3 " onClick={() => setIsOpen(false)}/>
+        <FaXmark className="absolute right-4 top-2 border text-4xl rounded text-white  p-1 " onClick={() => setIsOpen(false)}/>
         {connectors.map((connector) => (
           <button
             key={connector.id}

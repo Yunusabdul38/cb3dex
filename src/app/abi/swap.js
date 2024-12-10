@@ -1,6 +1,6 @@
 export const swap_contract_address = "0x03eea60f3d1fd3b2085146f16c239e20f5bced56a3fc180d18a0aa0493ca94a5"
 
-export const swap_abi = [
+export const swapAbi = [
     {
       "name": "swapImpl",
       "type": "impl",

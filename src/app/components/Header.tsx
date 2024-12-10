@@ -14,7 +14,7 @@ const Header = () => {
             <div className="text-xl text-white">cb3dex</div>
 
             <div className="relative hidden md:block">
-              <CiSearch className="absolute left-1 top-2 text-[1.7rem] text-white" />
+              <CiSearch className="absolute left-1 top-3 text-[1.7rem] text-white" />
               <input
                 type="text"
                 className="rounded-lg border bg-inherit py-2 pl-8 text-[1.4rem] text-white outline-none"

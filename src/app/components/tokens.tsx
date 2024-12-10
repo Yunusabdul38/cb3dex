@@ -21,8 +21,9 @@ const tokens = [
 
 const  Tokens:React.FC<close> = ({closeModal,tokenHandle})=>{
     return (
-        <div className="top-0 absolute inset-0 bg-gray-700 bg-opacity-65 backdrop-blur-md flex gap-x-4 justify-center z-[500] items-center" onClick={()=>closeModal()}>
-        <section className="bg-[#181830] px-5 rounded-md pt-5 pb-4 h-[533px] -mt-28 transition-all duration-500 w-[90%] sm:w-fit">
+        <>
+        <div className="top-0 absolute inset-0 bg-gray-700 bg-opacity-65 backdrop-blur-md flex gap-x-4 justify-center z-[500] items-center" onClick={()=>closeModal()}/>
+        <section className="bg-[#181830] px-5 rounded-md pt-5 pb-4 h-[533px] -mt-28 transition-all duration-500 w-[90%] sm:w-fit fixed top-[70%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-[600]">
            <div className="flex justify-between items-center text-white mb-4">
            <h1 className="font-medium text-xl">Select a token</h1>
            <FaXmark
@@ -51,7 +52,7 @@ const  Tokens:React.FC<close> = ({closeModal,tokenHandle})=>{
           })}
            </div>
         </section>
-        </div>
+        </>
     )
 }
 

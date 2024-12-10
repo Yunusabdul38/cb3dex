@@ -21,22 +21,16 @@ export function StarknetProvider({ children }: StarknetProviderProps) {
     order:"random"
   });
 
-//   const connectors = [
-//     ...injected,
-//     new WebWalletConnector({ url: "https://web.argent.xyz" }),
-//     new ArgentMobileConnector(),
-//   ];
-
   return (
     <StarknetConfig
       connectors={injected}
       chains={[mainnet, sepolia]}
 
       provider={jsonRpcProvider({
-        rpc: (chain) => ({ nodeUrl: process.env.NEXT_PUBLIC_RPC_URL }),
+        rpc: () => ({ nodeUrl: process.env.NEXT_PUBLIC_RPC_URL }),
       })}
       explorer={starkscan}
-      // autoConnect
+      autoConnect
     >
       {children}
     </StarknetConfig>

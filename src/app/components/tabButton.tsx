@@ -3,8 +3,9 @@ import React, { useState } from "react";
 // import AddTokenButton from "../../components/lib/AddToken";
 import BuyContent from "./buy";
 import SwapContent from "./swap";
+import SendToken from "./Send";
 
-type TabType = "swap" | "buy";
+type TabType = "swap" | "buy" | "send";
 
 interface TabButtonProps {
   tab: TabType;
@@ -53,9 +54,15 @@ const TabButtonInterface: React.FC = () => {
           isActive={activeTab === "buy"}
           onClick={handleTabChange}
         />
+         <TabButton
+          tab="send"
+          label="send"
+          isActive={activeTab === "send"}
+          onClick={handleTabChange}
+        />
       </div>
 
-      {activeTab === "swap" ? <SwapContent /> : <BuyContent />}
+      {activeTab === "swap" ? <SwapContent />:activeTab === "buy"? <BuyContent />:<SendToken/>}
     </div>
   );
 };
